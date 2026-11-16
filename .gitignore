@@ -1,0 +1,22 @@
+# OS / editor
+.DS_Store
+
+# Downloaded rate files (large, re-downloaded on first run), wherever the server was started
+**/data/cache/
+backend/data/
+
+# Go build output
+backend/bin/
+backend/cmd/server/server
+
+# Frontend dependencies and build output
+frontend/node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# Logs
+*.log
+
+# Personal working notes (kept locally, not published)
+ASSIGNMENT.md
+PLAN.md
