@@ -1,0 +1,103 @@
+{
+  "reporting_entity_name": "Test Payer",
+  "reporting_entity_type": "health insurance issuer",
+  "last_updated_on": "2026-01-01",
+  "version": "2.0.0",
+  "in_network": [
+    {
+      "negotiation_arrangement": "ffs",
+      "name": "OFFICE VISIT",
+      "billing_code_type": "CPT",
+      "billing_code_type_version": "2024",
+      "billing_code": "99213",
+      "description": "Office visit, established patient",
+      "negotiated_rates": [
+        {
+          "provider_references": [1],
+          "negotiated_prices": [
+            {"negotiated_type": "negotiated", "negotiated_rate": 100.5, "expiration_date": "9999-12-31", "service_code": ["11"], "billing_class": "professional", "setting": "outpatient"}
+          ]
+        },
+        {
+          "provider_references": [2],
+          "negotiated_prices": [
+            {"negotiated_type": "negotiated", "negotiated_rate": "150", "expiration_date": "9999-12-31", "service_code": ["11"], "billing_class": "professional", "setting": "outpatient", "billing_code_modifier": ["25"]}
+          ]
+        },
+        {
+          "provider_groups": [
+            {"npi": ["1111111111"], "tin": {"type": "ein", "value": "333333333", "business_name": "Inline Clinic"}}
+          ],
+          "negotiated_prices": [
+            {"negotiated_type": "negotiated", "negotiated_rate": 90, "expiration_date": "9999-12-31", "service_code": ["11"], "billing_class": "professional", "setting": "outpatient"}
+          ]
+        }
+      ]
+    },
+    {
+      "negotiation_arrangement": "ffs",
+      "name": "KNEE ARTHROSCOPY/SURGERY",
+      "billing_code_type": "RC",
+      "billing_code_type_version": "2022",
+      "billing_code": "490",
+      "description": "Ambulatory surgical care",
+      "negotiated_rates": [
+        {
+          "provider_references": [2],
+          "negotiated_prices": [
+            {"negotiated_type": "negotiated", "negotiated_rate": 500, "expiration_date": "9999-12-31", "service_code": ["24"], "billing_class": "institutional", "setting": "outpatient", "additional_information": "99213"}
+          ]
+        }
+      ]
+    },
+    {
+      "negotiation_arrangement": "ffs",
+      "name": "COLONOSCOPY",
+      "billing_code_type": "RC",
+      "billing_code_type_version": "2022",
+      "billing_code": "490",
+      "description": "Ambulatory surgical care",
+      "negotiated_rates": [
+        {
+          "provider_references": [2],
+          "negotiated_prices": [
+            {"negotiated_type": "negotiated", "negotiated_rate": 500, "expiration_date": "9999-12-31", "service_code": ["24"], "billing_class": "institutional", "setting": "outpatient", "additional_information": "99213"}
+          ]
+        }
+      ]
+    },
+    {"name": "BROKEN ITEM", "billing_code": {"not": "a code"}, "negotiated_rates": []},
+    {
+      "negotiation_arrangement": "ffs",
+      "name": "COLORECTAL SCREEN",
+      "billing_code_type": "hcpcs",
+      "billing_code": " g0121 ",
+      "description": "Colorectal cancer screening",
+      "negotiated_rates": [
+        {
+          "provider_references": [99],
+          "negotiated_prices": [
+            {"negotiated_type": "negotiated", "negotiated_rate": 10, "expiration_date": "9999-12-31", "service_code": ["11"], "billing_class": "professional", "setting": "outpatient"}
+          ]
+        }
+      ]
+    }
+  ],
+  "provider_references": [
+    {
+      "provider_group_id": 1,
+      "network_name": ["Network A"],
+      "provider_groups": [
+        {"npi": [1234567890, 1234567891, 1234567890], "tin": {"type": "ein", "value": "11-1111111", "business_name": "Alpha Medical"}}
+      ]
+    },
+    {
+      "provider_group_id": 2,
+      "provider_groups": [
+        {"npi": [2222222222], "tin": {"type": "ein", "value": "22-2222222", "business_name": "Beta Surgery Center"}},
+        {"npi": [1234567890], "tin": {"type": "ein", "value": "44-4444444", "business_name": "Gamma Group"}}
+      ]
+    },
+    {"provider_group_id": 3, "location": "https://example.com/remote-provider-reference.json"}
+  ]
+}
